@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AetherLogger\AetherLogger.csproj" />
+    <ProjectReference Include="..\AetherLogger.Models\AetherLogger.Models.csproj" />
   </ItemGroup>
 
 </Project>

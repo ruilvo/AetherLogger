@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Android", "Aet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Desktop", "AetherLogger.Desktop\AetherLogger.Desktop.csproj", "{8C13ACF2-003A-4B86-957E-6CDB5450944C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AetherLogger.Models.Tests", "AetherLogger.Models.Tests\AetherLogger.Models.Tests.csproj", "{9A352A10-DA28-4712-810B-16CE506BD787}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Models.Tests", "AetherLogger.Models.Tests\AetherLogger.Models.Tests.csproj", "{9A352A10-DA28-4712-810B-16CE506BD787}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AetherLogger.Models", "AetherLogger.Models\AetherLogger.Models.csproj", "{5B11E73F-8A77-4862-B150-E8D030411E22}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{9A352A10-DA28-4712-810B-16CE506BD787}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A352A10-DA28-4712-810B-16CE506BD787}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A352A10-DA28-4712-810B-16CE506BD787}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B11E73F-8A77-4862-B150-E8D030411E22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B11E73F-8A77-4862-B150-E8D030411E22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B11E73F-8A77-4862-B150-E8D030411E22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B11E73F-8A77-4862-B150-E8D030411E22}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
