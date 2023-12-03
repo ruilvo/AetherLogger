@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger", "AetherLogger\AetherLogger.csproj", "{58A81347-FDB0-44B6-B184-687FA49C1AD2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Android", "AetherLogger.Android\AetherLogger.Android.csproj", "{40203B02-56BE-4AE7-9F7A-F4D6BE2E90ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Desktop", "AetherLogger.Desktop\AetherLogger.Desktop.csproj", "{8C13ACF2-003A-4B86-957E-6CDB5450944C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{58A81347-FDB0-44B6-B184-687FA49C1AD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58A81347-FDB0-44B6-B184-687FA49C1AD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58A81347-FDB0-44B6-B184-687FA49C1AD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58A81347-FDB0-44B6-B184-687FA49C1AD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40203B02-56BE-4AE7-9F7A-F4D6BE2E90ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40203B02-56BE-4AE7-9F7A-F4D6BE2E90ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40203B02-56BE-4AE7-9F7A-F4D6BE2E90ED}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{40203B02-56BE-4AE7-9F7A-F4D6BE2E90ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40203B02-56BE-4AE7-9F7A-F4D6BE2E90ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40203B02-56BE-4AE7-9F7A-F4D6BE2E90ED}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{8C13ACF2-003A-4B86-957E-6CDB5450944C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C13ACF2-003A-4B86-957E-6CDB5450944C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C13ACF2-003A-4B86-957E-6CDB5450944C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C13ACF2-003A-4B86-957E-6CDB5450944C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {262B5872-B6F1-488F-B908-A865074C135D}
+	EndGlobalSection
+EndGlobal
