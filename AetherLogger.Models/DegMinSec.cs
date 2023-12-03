@@ -8,8 +8,8 @@ public struct DegMinSec
 
     public DegMinSec(double value)
     {
-        Degrees = Math.Floor(value);
-        Minutes = Math.Floor((value - Degrees) * 60);
+        Degrees = (double)(int)value;
+        Minutes = (double)(int)((value - Degrees) * 60);
         Seconds = (value - Degrees - Minutes / 60.0) * 3600.0;
     }
 
