@@ -1,5 +1,7 @@
 ﻿using NetTopologySuite.Geometries;
 
+using System.Diagnostics;
+
 namespace AetherLogger.Models;
 
 public class Location(Point point)
@@ -70,9 +72,8 @@ public class Location(Point point)
     /// <summary>
     /// Computes the QTH/Maidenhead grid square for the given coordinates.
     /// </summary>
-    /// <param name="precision"></param>
+    /// <param name="precision">How many characters to use for the Maidenhead locator.</param>
     /// <returns>The QTH/Maidenhead grid square.</returns>
-    /// <exception cref="NullReferenceException">When the coordinate value </exception>
     /// <remarks>
     /// See the
     /// <see href="https://www.adif.org/314/ADIF_314.htm#Maidenhead_Locator">ADIF specification</see>
@@ -110,9 +111,21 @@ public class Location(Point point)
     /// </summary>
     /// <param name="gridString"></param>
     /// <returns>A <see cref="Location"/> object.</returns>
+    /// <remarks>The coordinates generated are the centre of the square given as input.</remarks>
     public static Location FromGridSquare(string gridSquare)
     {
+        Debug.Assert(gridSquare.Length % 2 == 0, "The grid square must have an even number of characters.");
+
         string gridString = gridSquare.Trim().ToUpper();
+
+        // Test whether the grid square is valid
+        foreach (char c in gridString)
+        {
+            if (c < 'A' || c > 'X' && c < '0' || c > '9')
+            {
+                throw new ArgumentException("The grid square is not valid.", nameof(gridSquare));
+            }
+        }
 
         double longitude = 0.0;
         double latitude = 0.0;
