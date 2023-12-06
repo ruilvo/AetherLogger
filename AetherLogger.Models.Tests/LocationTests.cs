@@ -1,5 +1,3 @@
-using System.Security.Cryptography;
-
 namespace AetherLogger.Models.Tests;
 
 [TestFixture]
