@@ -1,12 +1,23 @@
-﻿using System.Collections.Generic;
-
-using Ardalis.SmartEnum;
+﻿using Ardalis.SmartEnum;
 
 namespace AetherLogger.Models;
 
 public interface IModeInterface : ISmartEnum
 {
     string ReadableName { get; }
+}
+
+public abstract class ModeBase<TEnum> : SmartEnum<TEnum, int>, IModeInterface where TEnum : SmartEnum<TEnum, int>
+{
+    protected ModeBase(string name, string? readableName = null) : base(name, ++_counter)
+    {
+        ReadableName = readableName ?? name;
+    }
+
+    // I think this static member is shared across all instances of the generic type
+    // but it's not a problem because the numeric value is unimportant.
+    private static int _counter;
+    public string ReadableName { get; }
 }
 
 /// <summary>
@@ -17,7 +28,7 @@ public interface IModeInterface : ISmartEnum
 /// <see href="https://www.adif.org/314/ADIF_314.htm#Mode_Enumeration">ADIF specification</see> 
 /// for the enumeration of modes.
 /// </remarks>  
-public sealed class Mode : SmartEnum<Mode>, IModeInterface
+public sealed class Mode : ModeBase<Mode>
 {
     public static readonly Mode AM = new(nameof(AM));
     public static readonly Mode ARDOP = new(nameof(ARDOP));
@@ -67,72 +78,39 @@ public sealed class Mode : SmartEnum<Mode>, IModeInterface
     public static readonly Mode WSPR = new(nameof(WSPR));
 
     public IEnumerable<IModeInterface>? Submodes { get; }
-    public string ReadableName { get; }
 
-    private static int _counter = 0;
-
-    private Mode(string name, string? readableName = null, IEnumerable<IModeInterface>? submodes = null) : base(name, ++_counter)
+    private Mode(string name, string? readableName = null, IEnumerable<IModeInterface>? submodes = null) : base(name, readableName)
     {
-        ReadableName = readableName ?? name;
         Submodes = submodes;
     }
 
-    public Mode(string name, IEnumerable<IModeInterface> submodes) : base(name, ++_counter)
+    public Mode(string name, IEnumerable<IModeInterface> submodes) : this(name, name, submodes)
     {
-        ReadableName = name;
-        Submodes = submodes;
     }
 }
 
 
-public sealed class ChipSubMode : SmartEnum<ChipSubMode>, IModeInterface
+public sealed class ChipSubMode(string name, string? readableName = null) : ModeBase<ChipSubMode>(name, readableName)
 {
     public static readonly ChipSubMode CHIP64 = new(nameof(CHIP64), "CHIP 64");
     public static readonly ChipSubMode CHIP128 = new(nameof(CHIP128), "CHIP 128");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private ChipSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class CwSubMode : SmartEnum<CwSubMode>, IModeInterface
+public sealed class CwSubMode(string name, string? readableName = null) : ModeBase<CwSubMode>(name, readableName)
 {
     public static readonly CwSubMode PCW = new(nameof(PCW), "Precision CW");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private CwSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class DigitalVoiceSubMode : SmartEnum<DigitalVoiceSubMode>, IModeInterface
+public sealed class DigitalVoiceSubMode(string name, string? readableName = null) : ModeBase<DigitalVoiceSubMode>(name, readableName)
 {
     public static readonly DigitalVoiceSubMode C4FM = new(nameof(C4FM), "C4FM (Fusion)");
     public static readonly DigitalVoiceSubMode DMR = new(nameof(DMR), "DMR");
     public static readonly DigitalVoiceSubMode DSTAR = new(nameof(DSTAR), "D-Star");
     public static readonly DigitalVoiceSubMode FREEDV = new(nameof(FREEDV), "FreeDV");
     public static readonly DigitalVoiceSubMode M17 = new(nameof(M17), "M17");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private DigitalVoiceSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class DominoSubMode : SmartEnum<DominoSubMode>, IModeInterface
+public sealed class DominoSubMode(string name, string? readableName = null) : ModeBase<DominoSubMode>(name, readableName)
 {
     public static readonly DominoSubMode DOM_M = new("DOM-M");
     public static readonly DominoSubMode DOM4 = new(nameof(DOM4));
@@ -145,35 +123,17 @@ public sealed class DominoSubMode : SmartEnum<DominoSubMode>, IModeInterface
     public static readonly DominoSubMode DOM88 = new(nameof(DOM88));
     public static readonly DominoSubMode DOMINOEX = new(nameof(DOMINOEX), "DominoEX");
     public static readonly DominoSubMode DOMINOF = new(nameof(DOMINOF), "DominoF");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private DominoSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class DynamicSubMode : SmartEnum<DynamicSubMode>, IModeInterface
+public sealed class DynamicSubMode(string name, string? readableName = null) : ModeBase<DynamicSubMode>(name, readableName)
 {
     public static readonly DynamicSubMode VARA_HF = new("VARA HF");
     public static readonly DynamicSubMode VARA_SATELLITE = new("VARA SATELLITE", "VARA Satellite");
     public static readonly DynamicSubMode VARA_FM_1200 = new("VARA FM 1200");
     public static readonly DynamicSubMode VARA_FM_9600 = new("VARA FM 9600");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private DynamicSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class HellSubMode : SmartEnum<HellSubMode>, IModeInterface
+public sealed class HellSubMode(string name, string? readableName = null) : ModeBase<HellSubMode>(name, readableName)
 {
     public static readonly HellSubMode FMHELL = new(nameof(FMHELL), "FM Hellschreiber");
     public static readonly HellSubMode FSKHELL = new(nameof(FSKHELL), "FSK Hellschreiber");
@@ -183,33 +143,15 @@ public sealed class HellSubMode : SmartEnum<HellSubMode>, IModeInterface
     public static readonly HellSubMode HFSK = new(nameof(HFSK), "Hellschreiber FSK");
     public static readonly HellSubMode PSKHELL = new(nameof(PSKHELL), "PSK Hellschreiber");
     public static readonly HellSubMode SLOWHELL = new(nameof(SLOWHELL), "Slow Hellschreiber");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private HellSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class IscatSubMode : SmartEnum<IscatSubMode>, IModeInterface
+public sealed class IscatSubMode(string name, string? readableName = null) : ModeBase<IscatSubMode>(name, readableName)
 {
     public static readonly IscatSubMode ISCAT_A = new("ISCAT-A");
     public static readonly IscatSubMode ISCAT_B = new("ISCAT-B");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private IscatSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class Jt4SubMode : SmartEnum<Jt4SubMode>, IModeInterface
+public sealed class Jt4SubMode(string name, string? readableName = null) : ModeBase<Jt4SubMode>(name, readableName)
 {
     public static readonly Jt4SubMode JT4A = new(nameof(JT4A));
     public static readonly Jt4SubMode JT4B = new(nameof(JT4B));
@@ -218,18 +160,9 @@ public sealed class Jt4SubMode : SmartEnum<Jt4SubMode>, IModeInterface
     public static readonly Jt4SubMode JT4E = new(nameof(JT4E));
     public static readonly Jt4SubMode JT4F = new(nameof(JT4F));
     public static readonly Jt4SubMode JT4G = new(nameof(JT4G));
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private Jt4SubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class Jt9SubMode : SmartEnum<Jt9SubMode>, IModeInterface
+public sealed class Jt9SubMode(string name, string? readableName = null) : ModeBase<Jt9SubMode>(name, readableName)
 {
     public static readonly Jt9SubMode JT9_1 = new("JT9-1");
     public static readonly Jt9SubMode JT9_2 = new("JT9-2");
@@ -248,36 +181,18 @@ public sealed class Jt9SubMode : SmartEnum<Jt9SubMode>, IModeInterface
     public static readonly Jt9SubMode JT9G_FAST = new("JT9G FAST", "JT9G (Fast)");
     public static readonly Jt9SubMode JT9H = new(nameof(JT9H));
     public static readonly Jt9SubMode JT9H_FAST = new("JT9H FAST", "JT9H (Fast)");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private Jt9SubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class Jt65SubMode : SmartEnum<Jt65SubMode>, IModeInterface
+public sealed class Jt65SubMode(string name, string? readableName = null) : ModeBase<Jt65SubMode>(name, readableName)
 {
     public static readonly Jt65SubMode JT65A = new(nameof(JT65A));
     public static readonly Jt65SubMode JT65B = new(nameof(JT65B));
     public static readonly Jt65SubMode JT65B2 = new(nameof(JT65B2));
     public static readonly Jt65SubMode JT65C = new(nameof(JT65C));
     public static readonly Jt65SubMode JT65C2 = new(nameof(JT65C2));
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private Jt65SubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class MfskSubMode : SmartEnum<MfskSubMode>, IModeInterface
+public sealed class MfskSubMode(string name, string? readableName = null) : ModeBase<MfskSubMode>(name, readableName)
 {
     public static readonly MfskSubMode FSQCALL = new(nameof(FSQCALL), "FSQCall");
     public static readonly MfskSubMode FST4 = new(nameof(FST4));
@@ -297,18 +212,9 @@ public sealed class MfskSubMode : SmartEnum<MfskSubMode>, IModeInterface
     public static readonly MfskSubMode MFSK128 = new(nameof(MFSK128), "MFSK 128");
     public static readonly MfskSubMode MFSK128L = new(nameof(MFSK128L), "MFSK 128 L");
     public static readonly MfskSubMode Q65 = new(nameof(Q65));
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private MfskSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class OliviaSubMode : SmartEnum<OliviaSubMode>, IModeInterface
+public sealed class OliviaSubMode(string name, string? readableName = null) : ModeBase<OliviaSubMode>(name, readableName)
 {
     public static readonly OliviaSubMode OLIVIA_4_125 = new("OLIVIA 4/125", "Olivia 4/125");
     public static readonly OliviaSubMode OLIVIA_4_250 = new("OLIVIA 4/250", "Olivia 4/250");
@@ -317,63 +223,27 @@ public sealed class OliviaSubMode : SmartEnum<OliviaSubMode>, IModeInterface
     public static readonly OliviaSubMode OLIVIA_16_500 = new("OLIVIA 16/500", "Olivia 16/500");
     public static readonly OliviaSubMode OLIVIA_16_1000 = new("OLIVIA 16/1000", "Olivia 16/1000");
     public static readonly OliviaSubMode OLIVIA_32_1000 = new("OLIVIA 32/1000", "Olivia 32/1000");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private OliviaSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class OperaSubMode : SmartEnum<OperaSubMode>, IModeInterface
+public sealed class OperaSubMode(string name, string? readableName = null) : ModeBase<OperaSubMode>(name, readableName)
 {
     public static readonly OperaSubMode OPERA_BEACON = new("OPERA-BEACON", "OPERA Beacon");
     public static readonly OperaSubMode OPERA_QSO = new("OPERA-QSO", "OPERA QSO");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private OperaSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class PacSubMode : SmartEnum<PacSubMode>, IModeInterface
+public sealed class PacSubMode(string name, string? readableName = null) : ModeBase<PacSubMode>(name, readableName)
 {
     public static readonly PacSubMode PAC2 = new(nameof(PAC2));
-    public static readonly PacSubMode PAC3 = new(nameof(PAC4));
+    public static readonly PacSubMode PAC3 = new(nameof(PAC3));
     public static readonly PacSubMode PAC4 = new(nameof(PAC4));
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private PacSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class PaxSubMode : SmartEnum<PaxSubMode>, IModeInterface
+public sealed class PaxSubMode(string name, string? readableName = null) : ModeBase<PaxSubMode>(name, readableName)
 {
     public static readonly PaxSubMode PAX2 = new(nameof(PAX2));
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private PaxSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class PskSubMode : SmartEnum<PskSubMode>, IModeInterface
+public sealed class PskSubMode(string name, string? readableName = null) : ModeBase<PskSubMode>(name, readableName)
 {
     public static readonly PskSubMode PSK_8PSK125 = new("8PSK125", "8-PSK 125");
     public static readonly PskSubMode PSK_8PSK125F = new("8PSK125F", "8-PSK 125 F");
@@ -435,81 +305,36 @@ public sealed class PskSubMode : SmartEnum<PskSubMode>, IModeInterface
     public static readonly PskSubMode QPSK250 = new(nameof(QPSK250), "QPSK 250");
     public static readonly PskSubMode QPSK500 = new(nameof(QPSK500), "QPSK 500");
     public static readonly PskSubMode SIM31 = new(nameof(SIM31), "SIM 31");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private PskSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class Qra64SubMode : SmartEnum<Qra64SubMode>, IModeInterface
+public sealed class Qra64SubMode(string name, string? readableName = null) : ModeBase<Qra64SubMode>(name, readableName)
 {
     public static readonly Qra64SubMode QRA64A = new(nameof(QRA64A), "QRA 64 A");
     public static readonly Qra64SubMode QRA64B = new(nameof(QRA64B), "QRA 64 B");
     public static readonly Qra64SubMode QRA64C = new(nameof(QRA64C), "QRA 64 C");
     public static readonly Qra64SubMode QRA64D = new(nameof(QRA64D), "QRA 64 D");
     public static readonly Qra64SubMode QRA64E = new(nameof(QRA64E), "QRA 64 E");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private Qra64SubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class RosSubMode : SmartEnum<RosSubMode>, IModeInterface
+public sealed class RosSubMode(string name, string? readableName = null) : ModeBase<RosSubMode>(name, readableName)
 {
     public static readonly RosSubMode ROS_EME = new("ROS-EME", "ROS EME");
     public static readonly RosSubMode ROS_HF = new("ROS-HF", "ROS HF");
     public static readonly RosSubMode ROS_MF = new("ROS-MF", "ROS MF");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private RosSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class RttySubMode : SmartEnum<RttySubMode>, IModeInterface
+public sealed class RttySubMode(string name, string? readableName = null) : ModeBase<RttySubMode>(name, readableName)
 {
     public static readonly RttySubMode ASCI = new(nameof(ASCI), "ASCII");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private RttySubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class SsbSubMode : SmartEnum<SsbSubMode>, IModeInterface
+public sealed class SsbSubMode(string name, string? readableName = null) : ModeBase<SsbSubMode>(name, readableName)
 {
     public static readonly SsbSubMode LSB = new(nameof(LSB));
     public static readonly SsbSubMode USB = new(nameof(USB));
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private SsbSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class ThorSubMode : SmartEnum<ThorSubMode>, IModeInterface
+public sealed class ThorSubMode(string name, string? readableName = null) : ModeBase<ThorSubMode>(name, readableName)
 {
     public static readonly ThorSubMode THOR_M = new("THOR-M");
     public static readonly ThorSubMode THOR4 = new(nameof(THOR4), "THOR 4");
@@ -522,18 +347,9 @@ public sealed class ThorSubMode : SmartEnum<ThorSubMode>, IModeInterface
     public static readonly ThorSubMode THOR50X1 = new(nameof(THOR50X1), "THOR 50X1");
     public static readonly ThorSubMode THOR50X2 = new(nameof(THOR50X2), "THOR 50X2");
     public static readonly ThorSubMode THOR100 = new(nameof(THOR100), "THOR 100");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private ThorSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class ThrbSubMode : SmartEnum<ThrbSubMode>, IModeInterface
+public sealed class ThrbSubMode(string name, string? readableName = null) : ModeBase<ThrbSubMode>(name, readableName)
 {
     public static readonly ThrbSubMode THRBX = new(nameof(THRBX), "THROB X");
     public static readonly ThrbSubMode THRBX1 = new(nameof(THRBX1), "THROB X1");
@@ -542,30 +358,12 @@ public sealed class ThrbSubMode : SmartEnum<ThrbSubMode>, IModeInterface
     public static readonly ThrbSubMode THROB1 = new(nameof(THROB1), "THROB B1");
     public static readonly ThrbSubMode THROB2 = new(nameof(THROB2), "THROB B2");
     public static readonly ThrbSubMode THROB4 = new(nameof(THROB4), "THROB B4");
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private ThrbSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
 
-public sealed class TorSubMode : SmartEnum<TorSubMode>, IModeInterface
+public sealed class TorSubMode(string name, string? readableName = null) : ModeBase<TorSubMode>(name, readableName)
 {
     public static readonly TorSubMode AMTORFEC = new(nameof(AMTORFEC), "AMTOR-FEC");
     public static readonly TorSubMode GTOR = new(nameof(GTOR));
     public static readonly TorSubMode NAVTEX = new(nameof(NAVTEX));
     public static readonly TorSubMode SITORB = new(nameof(SITORB));
-
-    public string ReadableName { get; }
-
-    private static int _counter = 0;
-
-    private TorSubMode(string name, string? readableName = null) : base(name, ++_counter)
-    {
-        ReadableName = readableName ?? name;
-    }
 }
