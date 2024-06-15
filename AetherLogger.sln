@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger", "AetherLogger\AetherLogger.csproj", "{20CDE39E-370C-4B3B-A81F-25844FF6AA90}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Android", "AetherLogger.Android\AetherLogger.Android.csproj", "{5A8AC92E-61A8-4878-8C2C-C4AD6853B39D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Desktop", "AetherLogger.Desktop\AetherLogger.Desktop.csproj", "{CBF3B5FE-094B-4142-9A1B-EA4CE8214069}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Database", "AetherLogger.Database\AetherLogger.Database.csproj", "{62C74C3E-E508-4FFD-8D66-69E0248C0B10}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Base", "AetherLogger.Base\AetherLogger.Base.csproj", "{2787807A-5FA7-41AD-ADC0-128DA7D8DD32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AetherLogger.Base.Tests", "AetherLogger.Base.Tests\AetherLogger.Base.Tests.csproj", "{8FA924CE-CAA4-44CA-AA52-36A1DBE172CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20CDE39E-370C-4B3B-A81F-25844FF6AA90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CDE39E-370C-4B3B-A81F-25844FF6AA90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CDE39E-370C-4B3B-A81F-25844FF6AA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CDE39E-370C-4B3B-A81F-25844FF6AA90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A8AC92E-61A8-4878-8C2C-C4AD6853B39D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A8AC92E-61A8-4878-8C2C-C4AD6853B39D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A8AC92E-61A8-4878-8C2C-C4AD6853B39D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5A8AC92E-61A8-4878-8C2C-C4AD6853B39D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A8AC92E-61A8-4878-8C2C-C4AD6853B39D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A8AC92E-61A8-4878-8C2C-C4AD6853B39D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CBF3B5FE-094B-4142-9A1B-EA4CE8214069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF3B5FE-094B-4142-9A1B-EA4CE8214069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF3B5FE-094B-4142-9A1B-EA4CE8214069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF3B5FE-094B-4142-9A1B-EA4CE8214069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C74C3E-E508-4FFD-8D66-69E0248C0B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C74C3E-E508-4FFD-8D66-69E0248C0B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C74C3E-E508-4FFD-8D66-69E0248C0B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C74C3E-E508-4FFD-8D66-69E0248C0B10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2787807A-5FA7-41AD-ADC0-128DA7D8DD32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2787807A-5FA7-41AD-ADC0-128DA7D8DD32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2787807A-5FA7-41AD-ADC0-128DA7D8DD32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2787807A-5FA7-41AD-ADC0-128DA7D8DD32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FA924CE-CAA4-44CA-AA52-36A1DBE172CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FA924CE-CAA4-44CA-AA52-36A1DBE172CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FA924CE-CAA4-44CA-AA52-36A1DBE172CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FA924CE-CAA4-44CA-AA52-36A1DBE172CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7221542-13DB-47EB-BDF3-9E74493E5EBE}
+	EndGlobalSection
+EndGlobal
