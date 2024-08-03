@@ -7,4 +7,7 @@ SPDX-License-Identifier: Apache-2.0 -->
         <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+    <ItemGroup>
+      <PackageReference Include="Ardalis.SmartEnum" Version="8.0.0" />
+    </ItemGroup>
 </Project>
