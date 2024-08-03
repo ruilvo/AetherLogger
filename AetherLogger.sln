@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger", "AetherLogge
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Android", "AetherLogger.Android\AetherLogger.Android.csproj", "{DAB2ABBF-60E8-443C-8039-BBC073B186B8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AetherLogger.Desktop", "AetherLogger.Desktop\AetherLogger.Desktop.csproj", "{0CC2A74B-296D-49F8-9A11-991EF06D7EE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{DAB2ABBF-60E8-443C-8039-BBC073B186B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAB2ABBF-60E8-443C-8039-BBC073B186B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DAB2ABBF-60E8-443C-8039-BBC073B186B8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0CC2A74B-296D-49F8-9A11-991EF06D7EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC2A74B-296D-49F8-9A11-991EF06D7EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC2A74B-296D-49F8-9A11-991EF06D7EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC2A74B-296D-49F8-9A11-991EF06D7EE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
