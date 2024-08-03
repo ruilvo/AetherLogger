@@ -7,7 +7,7 @@ using System;
 using Avalonia;
 using Avalonia.ReactiveUI;
 
-namespace AvaloniaApplication1.Desktop;
+namespace AetherLogger.Desktop;
 
 class Program
 {
