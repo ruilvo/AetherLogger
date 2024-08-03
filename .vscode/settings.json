@@ -1,0 +1,5 @@
+{
+    "[xml][AXAML][xaml]": {
+        "editor.defaultFormatter": "PrateekMahendrakar.prettyxml"
+    }
+}
