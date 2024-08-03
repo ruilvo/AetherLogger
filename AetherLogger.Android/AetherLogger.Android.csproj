@@ -7,11 +7,14 @@ SPDX-License-Identifier: Apache-2.0 -->
         <TargetFramework>net8.0-android</TargetFramework>
         <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
         <Nullable>enable</Nullable>
-        <ApplicationId>com.CompanyName.AvaloniaTest</ApplicationId>
+        <ApplicationId>com.AetherRadio.AetherLogger</ApplicationId>
         <ApplicationVersion>1</ApplicationVersion>
         <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
         <AndroidPackageFormat>apk</AndroidPackageFormat>
         <AndroidEnableProfiledAot>False</AndroidEnableProfiledAot>
+    </PropertyGroup>
+    <PropertyGroup Label="Avalonia">
+      <AvaloniaUseCompiledBindingsByDefault>True</AvaloniaUseCompiledBindingsByDefault>
     </PropertyGroup>
     <ItemGroup>
         <AndroidResource Include="Icon_400px.png">
@@ -19,10 +22,8 @@ SPDX-License-Identifier: Apache-2.0 -->
         </AndroidResource>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia.Android"
-                          Version="$(AvaloniaVersion)" />
-        <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen"
-                          Version="1.0.1.1" />
+        <PackageReference Include="Avalonia.Android" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" Version="1.0.1.1" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\AetherLogger\AetherLogger.csproj" />
