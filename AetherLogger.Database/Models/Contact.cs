@@ -10,24 +10,6 @@ public class Contact
 {
     public required string Callsign { get; set; }
     public required DateTime TimeOn { get; set; }
-
     public required Mode Mode { get; set; }
-
-    private IMode? _submode;
-    public IMode? Submode
-    {
-        get => _submode;
-        set
-        {
-            if (Mode.Submodes != null && Mode.Submodes.Contains(value))
-            {
-                _submode = value;
-            }
-            else
-            {
-                throw new ArgumentException("Submode not valid for mode", nameof(value));
-            }
-        }
-    }
 }
 
