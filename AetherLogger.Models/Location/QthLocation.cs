@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 using NetTopologySuite.Geometries;
-
+using System;
 using System.Diagnostics;
 
 namespace AetherLogger.Models.Location;
