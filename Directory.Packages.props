@@ -29,5 +29,7 @@ SPDX-License-Identifier: Apache-2.0 -->
                         Version="8.4.0" />
         <PackageVersion Include="Xamarin.AndroidX.Core.SplashScreen"
                         Version="1.0.1.13" />
+        <PackageVersion Include="NetTopologySuite"
+                        Version="2.5.0" />
     </ItemGroup>
 </Project>
