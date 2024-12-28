@@ -1,0 +1,13 @@
+{
+    "[markdown][xml][AXAML][xaml]": {
+        "editor.formatOnSaveMode": "file",
+    },
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+    },
+    "[xml][AXAML][xaml]": {
+        "editor.defaultFormatter": "PrateekMahendrakar.prettyxml",
+    },
+    "dotnet.projects.enableAutomaticRestore": false,
+    "editor.tabSize": 4
+}
