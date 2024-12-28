@@ -7,5 +7,5 @@ namespace AetherLogger.Database.Models;
 public class Operator
 {
     public string? Name { get; set; }
-    public string? Callsign { get; set; }
+    public required string Callsign { get; set; }
 }
