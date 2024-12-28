@@ -17,6 +17,9 @@ SPDX-License-Identifier: Apache-2.0 -->
         <PackageReference Include="NUnit3TestAdapter" />
     </ItemGroup>
     <ItemGroup>
+      <ProjectReference Include="..\AetherLogger.Models\AetherLogger.Models.csproj" />
+    </ItemGroup>
+    <ItemGroup>
         <Using Include="NUnit.Framework" />
     </ItemGroup>
 </Project>
