@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AetherLogger.Models.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AetherLogger.Database", "AetherLogger.Database\AetherLogger.Database.csproj", "{B45CCF3C-5D73-48B1-B646-86C1961D4650}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AetherLogger.Common", "AetherLogger.Common\AetherLogger.Common.csproj", "{C3ED418B-30A8-4D4F-A249-FB0615C5BA9B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{B45CCF3C-5D73-48B1-B646-86C1961D4650}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B45CCF3C-5D73-48B1-B646-86C1961D4650}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B45CCF3C-5D73-48B1-B646-86C1961D4650}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3ED418B-30A8-4D4F-A249-FB0615C5BA9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3ED418B-30A8-4D4F-A249-FB0615C5BA9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3ED418B-30A8-4D4F-A249-FB0615C5BA9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3ED418B-30A8-4D4F-A249-FB0615C5BA9B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

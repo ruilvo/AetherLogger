@@ -4,6 +4,7 @@
 
 
 using Ardalis.SmartEnum;
+using ISmartEnum = AetherLogger.Common.ISmartEnum;
 
 namespace AetherLogger.Database.Models;
 
@@ -368,4 +369,3 @@ public sealed class TorSubMode(string name, string? readableName = null) : ModeE
     public static readonly TorSubMode NAVTEX = new(nameof(NAVTEX));
     public static readonly TorSubMode SITORB = new(nameof(SITORB));
 }
-
