@@ -11,7 +11,7 @@ namespace AetherLogger.Android;
 
 [Activity(
     Label = "AetherLogger.Android",
-    Theme = "@style/MyTheme.NoActionBar",
+    Theme = "@style/AetherLoggerTheme.NoActionBar",
     Icon = "@drawable/icon_400px",
     MainLauncher = true,
     ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]

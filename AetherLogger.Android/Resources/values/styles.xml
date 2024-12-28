@@ -3,8 +3,8 @@
 SPDX-FileCopyrightText: 2024 Rui Oliveira <ruimail24@gmail.com>
 SPDX-License-Identifier: Apache-2.0 -->
 <resources>
-    <style name="MyTheme" />
-    <style name="MyTheme.NoActionBar"
+    <style name="AetherLoggerTheme" />
+    <style name="AetherLoggerTheme.NoActionBar"
            parent="@style/Theme.AppCompat.DayNight.NoActionBar">
         <item name="android:windowActionBar">false</item>
         <item name="android:windowBackground">@drawable/splash_screen</item>
