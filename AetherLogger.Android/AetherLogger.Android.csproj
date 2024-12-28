@@ -14,11 +14,6 @@ SPDX-License-Identifier: Apache-2.0 -->
         <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     </PropertyGroup>
     <ItemGroup>
-        <AndroidResource Include="Icon_400px.png">
-            <Link>Resources\drawable\Icon_400px.png</Link>
-        </AndroidResource>
-    </ItemGroup>
-    <ItemGroup>
         <PackageReference Include="Avalonia.Android" />
         <PackageReference Include="Xamarin.AndroidX.Core.SplashScreen" />
     </ItemGroup>

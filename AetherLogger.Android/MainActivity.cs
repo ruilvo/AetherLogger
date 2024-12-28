@@ -12,7 +12,7 @@ namespace AetherLogger.Android;
 [Activity(
     Label = "AetherLogger.Android",
     Theme = "@style/MyTheme.NoActionBar",
-    Icon = "@drawable/Icon_400px",
+    Icon = "@drawable/icon_400px",
     MainLauncher = true,
     ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize | ConfigChanges.UiMode)]
 public class MainActivity : AvaloniaMainActivity<App>

@@ -6,7 +6,7 @@ SPDX-License-Identifier: Apache-2.0 -->
     <item>
         <color android:color="@color/splash_background" />
     </item>
-    <item android:drawable="@drawable/icon"
+    <item android:drawable="@drawable/icon_400px"
           android:width="120dp"
           android:height="120dp"
           android:gravity="center" />
