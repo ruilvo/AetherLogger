@@ -10,6 +10,6 @@ SPDX-License-Identifier: Apache-2.0 -->
         <local:ViewLocator />
     </Application.DataTemplates>
     <Application.Styles>
-        <themes:MaterialTheme PrimaryColor="Green" SecondaryColor="Lime" />
+        <themes:MaterialTheme BaseTheme="Light" PrimaryColor="Green" SecondaryColor="Lime" />
     </Application.Styles>
 </Application>
