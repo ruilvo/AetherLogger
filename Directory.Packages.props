@@ -32,6 +32,8 @@ SPDX-License-Identifier: Apache-2.0 -->
         <!-- AetherLogger packages -->
         <PackageVersion Include="NetTopologySuite"
                         Version="2.5.0" />
+        <PackageVersion Include="Ardalis.SmartEnum"
+                        Version="8.2.0" />
         <!-- Test packages -->
         <PackageVersion Include="coverlet.collector"
                         Version="6.0.2" />
