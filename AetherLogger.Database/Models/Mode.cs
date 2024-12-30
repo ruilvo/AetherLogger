@@ -8,7 +8,7 @@ namespace AetherLogger.Database.Models;
 
 public class Mode
 {
-    public required ModeEnum  MainMode { get; set; }
+    public required ModeEnum MainMode { get; set; }
     private IModeEnum? _submode;
     public IModeEnum? Submode
     {
@@ -21,10 +21,23 @@ public class Mode
             }
             else
             {
-                throw new ArgumentException("Submode not valid for mode", nameof(value));
+                throw new ArgumentException("Sub-mode not valid for mode", nameof(value));
             }
         }
     }
 
     public IEnumerable<IModeEnum>? Submodes => MainMode.Submodes;
+
+    public Mode(ModeEnum mainMode, IModeEnum? submode = null)
+    {
+        MainMode = mainMode;
+        if (MainMode.Submodes != null)
+        {
+            if (submode == null && MainMode.Submodes.Contains(submode))
+            {
+                throw new ArgumentException("The sub-mode must be provided and valid when the mode has sub-modes.", nameof(submode));
+            }
+            _submode = submode;
+        }
+    }
 }
