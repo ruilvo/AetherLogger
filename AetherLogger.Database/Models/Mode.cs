@@ -27,17 +27,4 @@ public class Mode
     }
 
     public IEnumerable<IModeEnum>? Submodes => MainMode.Submodes;
-
-    public Mode(ModeEnum mainMode, IModeEnum? submode = null)
-    {
-        MainMode = mainMode;
-        if (MainMode.Submodes != null)
-        {
-            if (submode == null && MainMode.Submodes.Contains(submode))
-            {
-                throw new ArgumentException("The sub-mode must be provided and valid when the mode has sub-modes.", nameof(submode));
-            }
-            _submode = submode;
-        }
-    }
 }
