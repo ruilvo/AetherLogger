@@ -27,8 +27,9 @@ public abstract class ModeEnumBase<TEnum>(string name, string? readableName = nu
 /// </summary>
 /// <remarks>
 /// This follows the
-/// <see href="https://www.adif.org/314/ADIF_314.htm#Mode_Enumeration">ADIF specification</see>
+/// <see href="https://www.adif.org/315/ADIF_315_annotated.htm#Mode_Enumeration">ADIF 3.15 specification</see>
 /// for the enumeration of modes.
+/// Import-only modes are not included.
 /// </remarks>
 public sealed class ModeEnum : ModeEnumBase<ModeEnum>
 {
@@ -138,6 +139,8 @@ public sealed class DynamicSubMode(string name, string? readableName = null) : M
 public sealed class HellSubMode(string name, string? readableName = null) : ModeEnumBase<HellSubMode>(name, readableName)
 {
     public static readonly HellSubMode FMHELL = new(nameof(FMHELL), "FM Hellschreiber");
+    public static readonly HellSubMode FSKH105 = new(nameof(FSKH105), "FSK Hellschreiber 105");
+    public static readonly HellSubMode FSKH245 = new(nameof(FSKH245), "FSK Hellschreiber 245");
     public static readonly HellSubMode FSKHELL = new(nameof(FSKHELL), "FSK Hellschreiber");
     public static readonly HellSubMode HELL80 = new(nameof(HELL80), "Hellschreiber 80");
     public static readonly HellSubMode HELLX5 = new(nameof(HELLX5), "Hellschreiber X5");
